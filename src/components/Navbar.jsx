@@ -9,7 +9,15 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <h1 className="text-2xl font-bold text-brand-accent">Creative Pair</h1>
+
+      <Link to="/" className="flex items-center font-bold text-xl">
+          <div className="w-12 h-12 flex items-center justify-center mr-2">
+            <span className="text-white font-bold text-sm"><img src="public/logo__2.png" alt="CP" /></span>
+          </div>
+          Creative Pair
+        </Link>
+        
+      
       <div className="space-x-6">
         <Link to="/" className="hover:text-brand-light">Home</Link>
         <Link to="/about" className="hover:text-brand-light">About</Link>
