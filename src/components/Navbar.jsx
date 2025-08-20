@@ -1,50 +1,21 @@
-import { Link, NavLink } from 'react-router-dom'
-import { useState } from 'react'
-import { useTheme } from '../context/ThemeContext.jsx'
-
-const links = [
-  ['/', 'Home'],
-  ['/about', 'About'],
-  ['/services', 'Services'],
-  ['/products', 'Products'],
-  ['/blog', 'Blog'],
-  ['/contact', 'Contact'],
-]
+import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
-  const { toggle } = useTheme()
-
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
-      <div className="container h-16 flex items-center justify-between">
-        <Link to="/" className="font-bold text-xl">Creative Pair</Link>
-        <nav className="hidden md:flex items-center gap-6">
-          {links.map(([to, label]) => (
-            <NavLink key={to} to={to}
-              className={({isActive}) => `text-sm hover:text-brand ${isActive ? 'text-brand font-semibold' : 'text-gray-700'}`}>
-              {label}
-            </NavLink>
-          ))}
-          <button className="ml-4 btn btn-outline" onClick={toggle}>Toggle Theme</button>
-        </nav>
-        <button className="md:hidden p-2 border rounded-xl2" onClick={() => setOpen(!open)} aria-label="Menu">
-          ☰
-        </button>
+    <motion.nav 
+      className="flex justify-between items-center px-8 py-4 bg-brand-dark shadow-md sticky top-0 z-50"
+      initial={{ y: -80 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <h1 className="text-2xl font-bold text-brand-accent">Creative Pair</h1>
+      <div className="space-x-6">
+        <Link to="/" className="hover:text-brand-light">Home</Link>
+        <Link to="/about" className="hover:text-brand-light">About</Link>
+        <Link to="/services" className="hover:text-brand-light">Services</Link>
+        <Link to="/contact" className="hover:text-brand-light">Contact</Link>
       </div>
-      {open && (
-        <div className="md:hidden border-t bg-white">
-          <div className="container py-4 flex flex-col gap-3">
-            {links.map(([to, label]) => (
-              <NavLink key={to} to={to} onClick={() => setOpen(false)}
-                className={({isActive}) => `text-sm ${isActive ? 'text-brand font-semibold' : 'text-gray-700'}`}>
-                {label}
-              </NavLink>
-            ))}
-            <button className="btn btn-outline w-fit" onClick={() => {toggle(); setOpen(false)}}>Toggle Theme</button>
-          </div>
-        </div>
-      )}
-    </header>
+    </motion.nav>
   )
 }

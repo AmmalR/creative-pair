@@ -1,25 +1,21 @@
-import { Section } from '../components/Section.jsx'
-
-const items = [
-  { title: 'UI/UX Design', desc: 'Wireframes, prototypes, and polished design systems.' },
-  { title: 'Frontend Development', desc: 'React, Tailwind, performance and accessibility.' },
-  { title: 'Integrations', desc: 'APIs, auth, analytics, payments, and more.' },
-  { title: 'Consulting', desc: 'Architecture reviews, audits, and mentoring.' },
-]
-
 export default function Services() {
   return (
-    <main>
-      <Section title="Services" subtitle="Flexible engagement models tailored to your needs.">
-        <div className="grid md:grid-cols-2 gap-6">
-          {items.map(i => (
-            <div key={i.title} className="card">
-              <h3 className="h3">{i.title}</h3>
-              <p className="p mt-2">{i.desc}</p>
-            </div>
-          ))}
+    <section className="px-6 py-20">
+      <h2 className="text-4xl font-bold text-brand-accent mb-6">Our Services</h2>
+      <div className="grid md:grid-cols-3 gap-8">
+        <div className="p-6 bg-brand-light/10 rounded-2xl shadow">
+          <h3 className="text-2xl font-semibold">Service One</h3>
+          <p className="text-gray-300 mt-2">Dummy description for service one.</p>
         </div>
-      </Section>
-    </main>
+        <div className="p-6 bg-brand-light/10 rounded-2xl shadow">
+          <h3 className="text-2xl font-semibold">Service Two</h3>
+          <p className="text-gray-300 mt-2">Dummy description for service two.</p>
+        </div>
+        <div className="p-6 bg-brand-light/10 rounded-2xl shadow">
+          <h3 className="text-2xl font-semibold">Service Three</h3>
+          <p className="text-gray-300 mt-2">Dummy description for service three.</p>
+        </div>
+      </div>
+    </section>
   )
 }

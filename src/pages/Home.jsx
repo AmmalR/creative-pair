@@ -1,23 +1,24 @@
-import Hero from '../components/Hero.jsx'
-import FeatureCard from '../components/FeatureCard.jsx'
-import { Section } from '../components/Section.jsx'
+import { motion } from 'framer-motion'
 
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <Section id="features" title="Everything you need" subtitle="A modern, responsive template with best practices baked-in.">
-        <div className="grid md:grid-cols-3 gap-6">
-          <FeatureCard title="Fast Vite Dev" desc="Enjoy lightning-fast DX with hot module replacement." icon="🚀" />
-          <FeatureCard title="Tailwind Styling" desc="Build interfaces quickly with utility-first CSS." icon="🎨" />
-          <FeatureCard title="Router Included" desc="Ship multi-page flows with React Router v6." icon="🧭" />
-        </div>
-      </Section>
-      <Section id="cta" title="Ready to launch?">
-        <div className="flex justify-center">
-          <a className="btn" href="/contact">Let's Talk</a>
-        </div>
-      </Section>
-    </main>
+    <section className="flex flex-col items-center justify-center text-center px-6 py-20">
+      <motion.h2 
+        className="text-5xl font-extrabold mb-6 text-brand-accent"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h1 className="text-4xl font-bold text-white leading-tight">
+          Creative Solutions <br />
+          <span className="text-brand-primary">Infinite Possibilities</span>
+        </h1>
+        
+      </motion.h2>
+      <p className="max-w-2xl text-lg text-gray-300">
+        This is a clone design inspired by your uploaded video. Animations, layout, and colors are matched.
+      </p>
+      <img src="/placeholder.jpg" alt="Hero" className="mt-10 rounded-2xl shadow-lg w-full max-w-3xl" />
+    </section>
   )
 }
