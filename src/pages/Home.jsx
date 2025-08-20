@@ -13,10 +13,10 @@ export default function Home() {
           Creative Solutions <br />
           <span className="text-brand-primary">Infinite Possibilities</span>
         </h1>
-        
+
       </motion.h2>
       <p className="max-w-2xl text-lg text-gray-300">
-        This is a clone design inspired by your uploaded video. Animations, layout, and colors are matched.
+        Where Innovation Means Execution. Creative Pair Transforms bold ideas into extraordinary digital experiences that captivate, engage and deliver results.
       </p>
       <img src="/placeholder.jpg" alt="Hero" className="mt-10 rounded-2xl shadow-lg w-full max-w-3xl" />
     </section>
