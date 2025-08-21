@@ -99,7 +99,7 @@
 .contact-form-container {
   flex: 1;
   min-width: 300px;
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  background: linear-gradient(135deg, #849cea, #a981da);
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
