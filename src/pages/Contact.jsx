@@ -56,11 +56,11 @@ const ContactPage = () => {
             </div>
 
             <div className="contact-method">
-              <div className="icon"><Phone size={22} /></div>
+              <div className="icon"><Phone size={12} /></div>
               <div className="details">
                 <h3>Call Us</h3>
                 <p>+92 327-4968541</p>
-                <span>Mon–Fri, 9AM–5PM EST</span>
+                <span>Mon–Fri, 9AM–5PM PST</span>
               </div>
             </div>
 
