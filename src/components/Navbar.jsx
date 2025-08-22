@@ -22,6 +22,8 @@ export default function Navbar() {
         <Link to="/" className="hover:text-brand-light">Home</Link>
         <Link to="/about" className="hover:text-brand-light">About</Link>
         <Link to="/services" className="hover:text-brand-light">Services</Link>
+        <Link to="/projects" className="hover:text-brand-light">Projects</Link>
+        <Link to="/jobs" className="hover:text-brand-light">Jobs</Link>
         <Link to="/contact" className="hover:text-brand-light">Contact</Link>
       </div>
     </motion.nav>

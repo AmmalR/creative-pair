@@ -12,7 +12,8 @@ export default function Home() {
         className="text-4xl md:text-6xl font-bold text-center leading-tight"
       >
         Creative Solutions <br />
-        <span className="text-brand-primary">Infinite Possibilities</span>
+        <span className="text-gradient">Infinite Possibilities</span>
+
       </motion.h1>
 
       <motion.p
