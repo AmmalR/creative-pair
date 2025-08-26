@@ -5,7 +5,6 @@ import About from './pages/About'
 import Services from './pages/Services'
 import Contact from './pages/Contact'
 import Projects from './pages/Projects'
-import ProjectDetail from './pages/ProjectDetail'
 
 function App() {
   return (
@@ -17,14 +16,6 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/projectdetail" element={<ProjectDetail />} />
-        {Projects.map((project) => (
-          <Route
-            key={project.id}
-            path={`/project/${project.id}`}
-            element={<ProjectDetail projectId={project.id} />}
-          />
-     ))}
       </Routes>
     </div>
   )

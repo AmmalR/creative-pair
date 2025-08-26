@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import { Globe, Code, Smartphone, Sparkles, Palette, Badge } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+
 
 export default function Projects() {
   const [hoveredCard, setHoveredCard] = useState(null);
   const canvasRef = useRef(null);
-  const navigate = useNavigate();
-  
+
+
   // Particle Background Effect
   useEffect(() => {
     const canvas = canvasRef.current;
