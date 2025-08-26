@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
-import { Sparkles, Star, Circle } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+
 
 export default function Home() {
   const [hoveredCard, setHoveredCard] = useState(null);
   const canvasRef = useRef(null);
-
+  
   // Particle background effect
   useEffect(() => {
     const canvas = canvasRef.current;
