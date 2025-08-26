@@ -261,7 +261,7 @@ export default function Services() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-brand-dark to-brand-darker text-white overflow-hidden relative">
+     <div className="min-h-screen bg-gradient-to-br from-brand-dark to-brand-darker text-white flex flex-col items-center justify-center px-6 py-20 overflow-hidden relative">
       {/* Animated background canvas */}
       <canvas
         ref={canvasRef}
@@ -285,6 +285,31 @@ export default function Services() {
           ease: "easeInOut",
         }}
       />
+      <motion.div
+        className="absolute top-2/3 right-20 w-6 h-6 rounded-full bg-purple-500/20"
+        animate={{
+          y: [0, 15, 0],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5,
+        }}
+      />
+      <motion.div
+        className="absolute bottom-1/4 left-1/4 w-8 h-8 rounded-full bg-green-500/20"
+        animate={{
+          y: [0, 25, 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
+      />
+
       <motion.div
         className="absolute top-2/3 right-20 w-6 h-6 rounded-full bg-purple-500/20"
         animate={{
