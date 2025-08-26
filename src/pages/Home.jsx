@@ -207,14 +207,14 @@ export default function Home() {
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
-        >
-          Transform Your Vision Into{" "}
-          <span className="text-gradient">Infinite Possibilities</span>
-        </motion.h1>
+                    variants={itemVariants}
+                    className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
+                  >
+                    Creative Solutions{" "}
+                    <br/><span className="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">
+                      Infinite Possibilities
+                    </span>
+                  </motion.h1>
 
         <motion.p
           variants={itemVariants}
