@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Lightbulb, Target, Users, Zap, Globe, Award, Heart, Sparkles } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import Typewriter from "../components/Typewriter";
 
 export default function About() {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -75,9 +76,8 @@ export default function About() {
 
           if (distance < 100) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(110, 142, 251, ${
-              0.1 * (1 - distance / 100)
-            })`;
+            ctx.strokeStyle = `rgba(110, 142, 251, ${0.1 * (1 - distance / 100)
+              })`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -210,7 +210,17 @@ export default function About() {
           variants={itemVariants}
           className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text"
         >
-          About Creative Pair
+          <Typewriter
+            words={[
+              "About Creative Pair",
+              "Who We Are",
+              "Our Story",
+            ]}
+            typingSpeedMs={80}
+            deleteSpeedMs={40}
+            pauseMs={1300}
+            cursorClassName="text-white"
+          />
         </motion.h2>
         <motion.p
           variants={itemVariants}
@@ -391,9 +401,8 @@ export default function About() {
               }}
               onHoverStart={() => setHoveredCard(idx + 1)}
               onHoverEnd={() => setHoveredCard(null)}
-              className={`p-4 rounded-3xl bg-brand-card/20 backdrop-blur-md border border-white/10 text-center transition-all duration-500 cursor-pointer ${
-                hoveredCard && hoveredCard !== idx + 1 ? "opacity-70" : "opacity-100"
-              }`}
+              className={`p-4 rounded-3xl bg-brand-card/20 backdrop-blur-md border border-white/10 text-center transition-all duration-500 cursor-pointer ${hoveredCard && hoveredCard !== idx + 1 ? "opacity-70" : "opacity-100"
+                }`}
             >
               <div
                 className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-0 group-hover:opacity-10 

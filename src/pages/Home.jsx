@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import Typewriter from "../components/Typewriter";
 
 
 export default function Home() {
   const [hoveredCard, setHoveredCard] = useState(null);
   const canvasRef = useRef(null);
-  
+
   // Particle background effect
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -76,9 +77,8 @@ export default function Home() {
 
           if (distance < 100) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(110, 142, 251, ${
-              0.1 * (1 - distance / 100)
-            })`;
+            ctx.strokeStyle = `rgba(110, 142, 251, ${0.1 * (1 - distance / 100)
+              })`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -208,14 +208,26 @@ export default function Home() {
         </motion.div>
 
         <motion.h1
-                    variants={itemVariants}
-                    className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
-                  >
-                    Creative Solutions{" "}
-                    <br/><span className="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">
-                      Infinite Possibilities
-                    </span>
-                  </motion.h1>
+          variants={itemVariants}
+          className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
+        >
+          Creative Solutions {" "}
+          <br />
+          <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">
+            <Typewriter
+              words={[
+                "Infinite Possibilities",
+                "Stunning Experiences",
+                "Impactful Products",
+              ]}
+              typingSpeedMs={80}
+              deleteSpeedMs={40}
+              pauseMs={1300}
+              className=""
+              cursorClassName="text-white"
+            />
+          </span>
+        </motion.h1>
 
         <motion.p
           variants={itemVariants}
@@ -244,9 +256,8 @@ export default function Home() {
           }}
           onHoverStart={() => setHoveredCard(1)}
           onHoverEnd={() => setHoveredCard(null)}
-          className={`bg-brand-card/20 backdrop-blur-md rounded-3xl p-6 border border-white/10 text-center transition-all duration-500 cursor-pointer ${
-            hoveredCard && hoveredCard !== 1 ? "opacity-70" : "opacity-100"
-          }`}
+          className={`bg-brand-card/20 backdrop-blur-md rounded-3xl p-6 border border-white/10 text-center transition-all duration-500 cursor-pointer ${hoveredCard && hoveredCard !== 1 ? "opacity-70" : "opacity-100"
+            }`}
         >
           <div
             className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-0 group-hover:opacity-10 
@@ -276,9 +287,8 @@ export default function Home() {
           }}
           onHoverStart={() => setHoveredCard(2)}
           onHoverEnd={() => setHoveredCard(null)}
-          className={`bg-brand-card/20 backdrop-blur-md rounded-3xl p-6 border border-white/10 text-center transition-all duration-500 cursor-pointer ${
-            hoveredCard && hoveredCard !== 2 ? "opacity-70" : "opacity-100"
-          }`}
+          className={`bg-brand-card/20 backdrop-blur-md rounded-3xl p-6 border border-white/10 text-center transition-all duration-500 cursor-pointer ${hoveredCard && hoveredCard !== 2 ? "opacity-70" : "opacity-100"
+            }`}
         >
           <div
             className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-0 group-hover:opacity-10 

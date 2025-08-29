@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Globe, Code, Smartphone, Sparkles, Palette, Badge } from "lucide-react";
 
 
 export default function Projects() {
   const [hoveredCard, setHoveredCard] = useState(null);
   const canvasRef = useRef(null);
+  const navigate = useNavigate();
 
 
   // Particle Background Effect
@@ -76,6 +78,7 @@ export default function Projects() {
       technologies: ["React", "Tailwind", "HTML", "CSS", "JavaScript"],
       gradient: "from-blue-500 to-purple-600",
       hoverColor: "hover:shadow-blue-500/20",
+      path: "/projects/portfolio",
     },
     {
       id: 2,
@@ -86,6 +89,7 @@ export default function Projects() {
       technologies: ["Flutter", "Firebase", "Kotlin", "Java", "MySQL"],
       gradient: "from-green-500 to-teal-600",
       hoverColor: "hover:shadow-green-500/20",
+      path: "/projects/mobile-apps",
     },
     {
       id: 3,
@@ -96,6 +100,7 @@ export default function Projects() {
       technologies: ["Shopify"],
       gradient: "from-orange-500 to-red-600",
       hoverColor: "hover:shadow-orange-500/20",
+      path: "/projects/ecommerce",
     },
     {
       id: 4,
@@ -106,6 +111,7 @@ export default function Projects() {
       technologies: ["React", "HTML", "CSS", "JavaScript", "Tailwind"],
       gradient: "from-blue-600 to-indigo-600",
       hoverColor: "hover:shadow-blue-600/20",
+      path: "/projects/web-apps",
     },
     {
       id: 5,
@@ -116,6 +122,7 @@ export default function Projects() {
       technologies: ["Figma", "Canva"],
       gradient: "from-pink-500 to-purple-500",
       hoverColor: "hover:shadow-pink-500/20",
+      path: "/projects/design",
     },
   ];
 
@@ -140,7 +147,7 @@ export default function Projects() {
               Our Projects
             </span>
           </div>
-             <motion.h1
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
@@ -150,7 +157,7 @@ export default function Projects() {
             <span className="text-gradient"> Featured Work</span>
           </motion.h1>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-        Some of the projects we have built, ranging from websites to
+            Some of the projects we have built, ranging from websites to
             apps and full-stack solutions.
           </p>
         </motion.div>
@@ -168,13 +175,13 @@ export default function Projects() {
             whileHover={{ y: -15 }}
             onHoverStart={() => setHoveredCard(project.id)}
             onHoverEnd={() => setHoveredCard(null)}
+            onClick={() => navigate(project.path)}
             className={`relative bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 
               overflow-hidden transition-all duration-500 cursor-pointer group
-              ${project.hoverColor} ${
-              hoveredCard && hoveredCard !== project.id
+              ${project.hoverColor} ${hoveredCard && hoveredCard !== project.id
                 ? "opacity-70"
                 : "opacity-100"
-            }`}
+              }`}
           >
             {/* Gradient overlay */}
             <div
