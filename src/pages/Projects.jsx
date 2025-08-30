@@ -154,7 +154,7 @@ export default function Projects() {
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           >
             Our
-            <span className="text-gradient"> Featured Work</span>
+            <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text"> Featured Work</span>
           </motion.h1>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Some of the projects we have built, ranging from websites to

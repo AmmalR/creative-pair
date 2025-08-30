@@ -357,7 +357,7 @@ export default function Services() {
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
           >
             Transform Your Vision Into{" "}
-            <span className="text-gradient">Digital Reality</span>
+            <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">Digital Reality</span>
           </motion.h1>
 
           <motion.p

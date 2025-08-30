@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Typewriter from "../components/Typewriter";
-
 
 export default function Home() {
   const [hoveredCard, setHoveredCard] = useState(null);
   const canvasRef = useRef(null);
+  const navigate = useNavigate();
 
   // Particle background effect
   useEffect(() => {
@@ -43,12 +44,8 @@ export default function Home() {
         this.x += this.speedX;
         this.y += this.speedY;
 
-        if (this.x > canvas.width || this.x < 0) {
-          this.speedX = -this.speedX;
-        }
-        if (this.y > canvas.height || this.y < 0) {
-          this.speedY = -this.speedY;
-        }
+        if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+        if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
       }
 
       draw() {
@@ -77,8 +74,9 @@ export default function Home() {
 
           if (distance < 100) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(110, 142, 251, ${0.1 * (1 - distance / 100)
-              })`;
+            ctx.strokeStyle = `rgba(110, 142, 251, ${
+              0.1 * (1 - distance / 100)
+            })`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -108,9 +106,7 @@ export default function Home() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.2 },
     },
   };
 
@@ -119,10 +115,7 @@ export default function Home() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -131,31 +124,23 @@ export default function Home() {
       {/* Animated background canvas */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full opacity-30"
+        className="absolute inset-0 w-full h-full opacity-30 pointer-events-none" // Added pointer-events-none
       />
 
-      {/* Animated background elements */}
+      {/* Gradient overlays */}
       <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-brand-primary/10 to-transparent"></div>
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-brand-secondary/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-primary/5 rounded-full blur-3xl"></div>
 
       {/* Floating elements */}
       <motion.div
-        className="absolute top-1/4 left-10 w-10 h-10 rounded-full bg-blue-500/20"
-        animate={{
-          y: [0, 20, 0],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
+        className="absolute top-1/4 left-10 w-10 h-10 rounded-full bg-blue-500/20 pointer-events-none" // Added pointer-events-none
+        animate={{ y: [0, 20, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute top-2/3 right-20 w-6 h-6 rounded-full bg-purple-500/20"
-        animate={{
-          y: [0, 15, 0],
-        }}
+        className="absolute top-2/3 right-20 w-6 h-6 rounded-full bg-purple-500/20 pointer-events-none" // Added pointer-events-none
+        animate={{ y: [0, 15, 0] }}
         transition={{
           duration: 4,
           repeat: Infinity,
@@ -164,10 +149,8 @@ export default function Home() {
         }}
       />
       <motion.div
-        className="absolute bottom-1/4 left-1/4 w-8 h-8 rounded-full bg-green-500/20"
-        animate={{
-          y: [0, 25, 0],
-        }}
+        className="absolute bottom-1/4 left-1/4 w-8 h-8 rounded-full bg-green-500/20 pointer-events-none" // Added pointer-events-none
+        animate={{ y: [0, 25, 0] }}
         transition={{
           duration: 6,
           repeat: Infinity,
@@ -211,8 +194,7 @@ export default function Home() {
           variants={itemVariants}
           className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
         >
-          Creative Solutions {" "}
-          <br />
+          Creative Solutions <br />
           <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">
             <Typewriter
               words={[
@@ -223,7 +205,6 @@ export default function Home() {
               typingSpeedMs={80}
               deleteSpeedMs={40}
               pauseMs={1300}
-              className=""
               cursorClassName="text-white"
             />
           </span>
@@ -233,7 +214,7 @@ export default function Home() {
           variants={itemVariants}
           className="mt-6 text-lg text-brand-soft text-center max-w-2xl"
         >
-          Where Innovation meets Execution. Creative Pair Transforms bold ideas
+          Where Innovation meets Execution. Creative Pair transforms bold ideas
           into extraordinary digital experiences that captivate, engage, and
           deliver results.
         </motion.p>
@@ -256,15 +237,13 @@ export default function Home() {
           }}
           onHoverStart={() => setHoveredCard(1)}
           onHoverEnd={() => setHoveredCard(null)}
-          className={`bg-brand-card/20 backdrop-blur-md rounded-3xl p-6 border border-white/10 text-center transition-all duration-500 cursor-pointer ${hoveredCard && hoveredCard !== 1 ? "opacity-70" : "opacity-100"
-            }`}
+          onClick={() => navigate("/about")} // Click navigates
+          className={`bg-brand-card/20 backdrop-blur-md rounded-3xl p-6 border border-white/10 text-center transition-all duration-500 cursor-pointer ${
+            hoveredCard && hoveredCard !== 1 ? "opacity-70" : "opacity-100"
+          }`}
         >
-          <div
-            className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-0 group-hover:opacity-10 
-            transition-opacity duration-500 rounded-3xl"
-          ></div>
           <motion.img
-            src="public/Mashal.jpeg"
+            src="/Mashal.jpeg"
             alt="Mashal Farhat"
             className="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-brand-primary"
             whileHover={{ scale: 1.1, rotate: 5 }}
@@ -287,15 +266,13 @@ export default function Home() {
           }}
           onHoverStart={() => setHoveredCard(2)}
           onHoverEnd={() => setHoveredCard(null)}
-          className={`bg-brand-card/20 backdrop-blur-md rounded-3xl p-6 border border-white/10 text-center transition-all duration-500 cursor-pointer ${hoveredCard && hoveredCard !== 2 ? "opacity-70" : "opacity-100"
-            }`}
+          onClick={() => navigate("/projects")} // Click navigates
+          className={`bg-brand-card/20 backdrop-blur-md rounded-3xl p-6 border border-white/10 text-center transition-all duration-500 cursor-pointer ${
+            hoveredCard && hoveredCard !== 2 ? "opacity-70" : "opacity-100"
+          }`}
         >
-          <div
-            className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-0 group-hover:opacity-10 
-            transition-opacity duration-500 rounded-3xl"
-          ></div>
           <motion.img
-            src="public/Ammal.jpeg"
+            src="/Ammal.jpeg"
             alt="Ammal Raheem"
             className="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-brand-primary"
             whileHover={{ scale: 1.1, rotate: 5 }}
@@ -307,6 +284,42 @@ export default function Home() {
             Specializes in building scalable and robust web & mobile
             applications.
           </p>
+        </motion.div>
+      </motion.section>
+
+      {/* Action Buttons */}
+      <motion.section
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="mt-12 flex flex-col items-center justify-center relative z-10" // Added z-index
+      >
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+          <motion.button
+            onClick={() => {
+              console.log("Navigating to /about"); // Debug log
+              navigate("/about");
+            }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transition"
+          >
+            Get Started →
+          </motion.button>
+          <motion.button
+            onClick={() => {
+              console.log("Navigating to /projects"); // Debug log
+              navigate("/projects");
+            }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-semibold hover:bg-white/20 transition"
+          >
+            View Our Work
+          </motion.button>
         </motion.div>
       </motion.section>
     </div>

@@ -116,7 +116,7 @@ export default function PortfolioWeb() {
                         transition={{ duration: 0.7, delay: 0.2 }}
                         className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                     >
-                        Personal <span className="text-gradient">Portfolios</span>
+                        Personal <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">Portfolios</span>
                     </motion.h1>
                 </motion.div>
             </section>

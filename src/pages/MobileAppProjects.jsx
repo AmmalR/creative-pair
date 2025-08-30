@@ -76,9 +76,9 @@ export default function MobileAppProjects() {
         },
         {
             id: 2,
-            icon: <Smartphone className="w-12 h-12" />,
+            icon: <img src="public/CWF.png" alt="Care Without Fear" className="w-16 h-16" />,
             title: "Care Without Fear",
-            description: "Health awareness app with secure content delivery.",
+            description: "Digitalizing healt and child care with enhanced security feature, auth and secure payments.",
             technologies: ["Java", "Node.js", "Firebase", "XML"],
             gradient: "from-blue-500 to-purple-600",
             hoverColor: "hover:shadow-blue-500/20",
@@ -128,7 +128,7 @@ export default function MobileAppProjects() {
                         transition={{ duration: 0.7, delay: 0.2 }}
                         className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
                     >
-                        Our <span className="text-gradient">Mobile Projects</span>
+                        Our <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">Mobile Projects</span>
                     </motion.h1>
                     <p className="text-lg text-gray-400 max-w-2xl mx-auto">
                         Cross-platform and native apps built with modern stacks.

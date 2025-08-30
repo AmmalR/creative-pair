@@ -67,7 +67,7 @@ export default function WebAppProjects() {
     const projects = [
         {
             id: 1,
-            icon: <Badge className="w-12 h-12" />,
+            icon: <img src="public/Scents.png" alt="Scents" className="w-16 h-16" />,
             title: "Scents",
             description: "Elegant product showcase site with smooth interactions.",
             technologies: ["HTML", "CSS", "JavaScript"],
@@ -83,11 +83,11 @@ export default function WebAppProjects() {
             technologies: ["HTML", "CSS", "JavaScript"],
             gradient: "from-green-500 to-teal-600",
             hoverColor: "hover:shadow-green-500/20",
-            url: "https://ammalr.github.io/Portfolio/",
+            url: "https://ammalr.github.io/BotanicaOrganica/",
         },
         {
             id: 3,
-            icon: <Code className="w-12 h-12" />,
+            icon: <img src="src/pages/WebAppProjects.jsx" alt="ICM" className="w-16 h-16"/>,
             title: "ICM US",
             description: "A corporate WordPress website tailored for the US audience.",
             technologies: ["WordPress"],
@@ -97,7 +97,7 @@ export default function WebAppProjects() {
         },
         {
             id: 4,
-            icon: <Code className="w-12 h-12" />,
+            icon: < img src="src/pages/WebAppProjects.jsx" alt="ICM" className="w-16 h-16"/>,
             title: "ICM Canada",
             description: "A professional WordPress site built for Canadian users.",
             technologies: ["WordPress"],
@@ -132,7 +132,7 @@ export default function WebAppProjects() {
                         transition={{ duration: 0.7, delay: 0.2 }}
                         className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
                     >
-                        Our <span className="text-gradient">Web Projects</span>
+                        Our <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">Web Projects</span>
                     </motion.h1>
                     <p className="text-lg text-gray-400 max-w-2xl mx-auto">
                         Responsive sites and web apps with modern interactions.
