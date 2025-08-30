@@ -6,8 +6,17 @@ import Typewriter from "../components/Typewriter";
 
 export default function Home() {
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const canvasRef = useRef(null);
   const navigate = useNavigate();
+
+  // Simulate loading (replace with actual loading logic if needed)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // 2-second delay for demo
+    return () => clearTimeout(timer);
+  }, []);
 
   // Particle background effect
   useEffect(() => {
@@ -17,7 +26,6 @@ export default function Home() {
     const ctx = canvas.getContext("2d");
     let animationFrameId;
 
-    // Set canvas size
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -26,7 +34,6 @@ export default function Home() {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // Particle system
     const particles = [];
     const particleCount = 50;
 
@@ -56,16 +63,13 @@ export default function Home() {
       }
     }
 
-    // Create particles
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle());
     }
 
-    // Animation loop
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw connections between particles
       for (let i = 0; i < particles.length; i++) {
         for (let j = i; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -85,7 +89,6 @@ export default function Home() {
         }
       }
 
-      // Update and draw particles
       particles.forEach((particle) => {
         particle.update();
         particle.draw();
@@ -121,10 +124,84 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-dark to-brand-darker text-white flex flex-col items-center justify-center px-6 py-20 overflow-hidden relative">
+      {/* Custom Loader Overlay */}
+      {isLoading && (
+        <motion.div
+          className="absolute inset-0 bg-brand-dark/90 flex items-center justify-center z-50"
+          initial={{ opacity: 1 }}
+          animate={{ opacity: isLoading ? 1 : 0 }}
+          transition={{ duration: 0.5 }}
+          style={{ pointerEvents: isLoading ? "auto" : "none" }}
+        >
+          <div className="relative flex flex-col items-center">
+            {/* Particle Orbit Animation */}
+            <div className="relative w-24 h-24">
+              <motion.div
+                className="absolute w-4 h-4 rounded-full bg-brand-primary/50"
+                animate={{
+                  rotate: 360,
+                  x: [0, 40, 0, -40, 0],
+                  y: [0, 40, 0, -40, 0],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+              <motion.div
+                className="absolute w-4 h-4 rounded-full bg-blue-500/50"
+                animate={{
+                  rotate: -360,
+                  x: [0, -30, 0, 30, 0],
+                  y: [0, 30, 0, -30, 0],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.3,
+                }}
+              />
+              <motion.div
+                className="absolute w-4 h-4 rounded-full bg-purple-600/50"
+                animate={{
+                  rotate: 360,
+                  x: [0, 20, 0, -20, 0],
+                  y: [0, -20, 0, 20, 0],
+                }}
+                transition={{
+                  duration: 1.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.6,
+                }}
+              />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-600/20 animate-pulse"></div>
+            </div>
+            {/* Loading Text */}
+            <motion.p
+              className="mt-6 text-lg text-brand-soft font-medium"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
+              <Typewriter
+                words={["Loading..."]}
+                typingSpeedMs={100}
+                deleteSpeedMs={0}
+                pauseMs={1000}
+                cursorClassName="text-brand-primary"
+              />
+            </motion.p>
+          </div>
+        </motion.div>
+      )}
+
       {/* Animated background canvas */}
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full opacity-30 pointer-events-none" // Added pointer-events-none
+        className="absolute inset-0 w-full h-full opacity-30 pointer-events-none"
       />
 
       {/* Gradient overlays */}
@@ -134,12 +211,12 @@ export default function Home() {
 
       {/* Floating elements */}
       <motion.div
-        className="absolute top-1/4 left-10 w-10 h-10 rounded-full bg-blue-500/20 pointer-events-none" // Added pointer-events-none
+        className="absolute top-1/4 left-10 w-10 h-10 rounded-full bg-blue-500/20 pointer-events-none"
         animate={{ y: [0, 20, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute top-2/3 right-20 w-6 h-6 rounded-full bg-purple-500/20 pointer-events-none" // Added pointer-events-none
+        className="absolute top-2/3 right-20 w-6 h-6 rounded-full bg-purple-500/20 pointer-events-none"
         animate={{ y: [0, 15, 0] }}
         transition={{
           duration: 4,
@@ -149,7 +226,7 @@ export default function Home() {
         }}
       />
       <motion.div
-        className="absolute bottom-1/4 left-1/4 w-8 h-8 rounded-full bg-green-500/20 pointer-events-none" // Added pointer-events-none
+        className="absolute bottom-1/4 left-1/4 w-8 h-8 rounded-full bg-green-500/20 pointer-events-none"
         animate={{ y: [0, 25, 0] }}
         transition={{
           duration: 6,
@@ -237,7 +314,7 @@ export default function Home() {
           }}
           onHoverStart={() => setHoveredCard(1)}
           onHoverEnd={() => setHoveredCard(null)}
-          onClick={() => navigate("/about")} // Click navigates
+          onClick={() => navigate("/about")}
           className={`bg-brand-card/20 backdrop-blur-md rounded-3xl p-6 border border-white/10 text-center transition-all duration-500 cursor-pointer ${
             hoveredCard && hoveredCard !== 1 ? "opacity-70" : "opacity-100"
           }`}
@@ -266,7 +343,7 @@ export default function Home() {
           }}
           onHoverStart={() => setHoveredCard(2)}
           onHoverEnd={() => setHoveredCard(null)}
-          onClick={() => navigate("/projects")} // Click navigates
+          onClick={() => navigate("/projects")}
           className={`bg-brand-card/20 backdrop-blur-md rounded-3xl p-6 border border-white/10 text-center transition-all duration-500 cursor-pointer ${
             hoveredCard && hoveredCard !== 2 ? "opacity-70" : "opacity-100"
           }`}
@@ -292,7 +369,7 @@ export default function Home() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="mt-12 flex flex-col items-center justify-center relative z-10" // Added z-index
+        className="mt-12 flex flex-col items-center justify-center relative z-10"
       >
         <motion.div
           variants={itemVariants}
@@ -300,10 +377,10 @@ export default function Home() {
         >
           <motion.button
             onClick={() => {
-              console.log("Navigating to /about"); // Debug log
+              console.log("Navigating to /about");
               navigate("/about");
             }}
-            whileHover={{ scale: 1.05 }}
+            while Hover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold shadow-lg hover:shadow-xl transition"
           >
@@ -311,7 +388,7 @@ export default function Home() {
           </motion.button>
           <motion.button
             onClick={() => {
-              console.log("Navigating to /projects"); // Debug log
+              console.log("Navigating to /projects");
               navigate("/projects");
             }}
             whileHover={{ scale: 1.05 }}
