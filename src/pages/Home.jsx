@@ -329,7 +329,7 @@ export default function Home() {
           <h3 className="text-xl font-semibold">Mashal Farhat</h3>
           <p className="text-brand-primary font-medium">Creative Visionary</p>
           <p className="text-brand-soft mt-2 text-sm">
-            Expert in creating visually stunning and user-friendly designs.
+            Expert in creating visually stunning and user-friendly designs
           </p>
         </motion.div>
 
@@ -358,8 +358,7 @@ export default function Home() {
           <h3 className="text-xl font-semibold">Ammal Raheem</h3>
           <p className="text-brand-primary font-medium">Technical Innovator</p>
           <p className="text-brand-soft mt-2 text-sm">
-            Specializes in building scalable and robust web & mobile
-            applications.
+            Specializes in building scalable and robust applications
           </p>
         </motion.div>
       </motion.section>
