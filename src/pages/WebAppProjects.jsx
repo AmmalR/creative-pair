@@ -122,9 +122,9 @@ export default function WebAppProjects() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-blue-500/10 border border-blue-500/20">
-                        <Sparkles className="w-4 h-4 text-blue-400" />
-                        <span className="text-blue-400 text-sm font-medium">Web Apps</span>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-[#20bdff]/10 border border-[#20bdff]/20">
+                        <Sparkles className="w-4 h-4 text-[#5433ff]" />
+                        <span className="text-[#5433ff] text-sm font-medium">Web Apps</span>
                     </div>
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
@@ -132,7 +132,7 @@ export default function WebAppProjects() {
                         transition={{ duration: 0.7, delay: 0.2 }}
                         className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
                     >
-                        Our <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">Web Projects</span>
+                        Our <span className="bg-gradient-to-r from-[#5433ff] to-[#20bdff] text-transparent bg-clip-text">Web Projects</span>
                     </motion.h1>
                     <p className="text-lg text-gray-400 max-w-2xl mx-auto">
                         Responsive sites and web apps with modern interactions.

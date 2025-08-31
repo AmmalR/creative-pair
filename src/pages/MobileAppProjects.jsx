@@ -118,9 +118,9 @@ export default function MobileAppProjects() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-blue-500/10 border border-blue-500/20">
-                        <Sparkles className="w-4 h-4 text-blue-400" />
-                        <span className="text-blue-400 text-sm font-medium">Mobile Apps</span>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-[#00f260]/10 border border-[#00f260]/20">
+                        <Sparkles className="w-4 h-4 text-[#0575e6]" />
+                        <span className="text-[#0575e6] text-sm font-medium">Mobile Apps</span>
                     </div>
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
@@ -128,7 +128,7 @@ export default function MobileAppProjects() {
                         transition={{ duration: 0.7, delay: 0.2 }}
                         className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
                     >
-                        Our <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">Mobile Projects</span>
+                        Our <span className="bg-gradient-to-r from-[#00f260] to-[#0575e6] text-transparent bg-clip-text">Mobile Projects</span>
                     </motion.h1>
                     <p className="text-lg text-gray-400 max-w-2xl mx-auto">
                         Cross-platform and native apps built with modern stacks.

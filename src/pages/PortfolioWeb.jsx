@@ -106,9 +106,9 @@ export default function PortfolioWeb() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-blue-500/10 border border-blue-500/20">
-                        <Sparkles className="w-4 h-4 text-blue-400" />
-                        <span className="text-blue-400 text-sm font-medium">Portfolio</span>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-[#c471ed]/10 border border-[#c471ed]/20">
+                        <Sparkles className="w-4 h-4 text-[#12c2e9]" />
+                        <span className="text-[#12c2e9] text-sm font-medium">Portfolio</span>
                     </div>
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
@@ -116,7 +116,7 @@ export default function PortfolioWeb() {
                         transition={{ duration: 0.7, delay: 0.2 }}
                         className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
                     >
-                        Personal <span className="bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">Portfolios</span>
+                        Personal <span className="bg-gradient-to-r from-[#c471ed] to-[#12c2e9] text-transparent bg-clip-text">Portfolios</span>
                     </motion.h1>
                 </motion.div>
             </section>

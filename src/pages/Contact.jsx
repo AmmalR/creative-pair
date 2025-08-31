@@ -312,7 +312,7 @@ const ContactPage = () => {
                   className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-2xl"
                 ></div>
                 <motion.div
-                  className="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center mb-4"
+                  className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-purple-600/10 flex items-center justify-center mb-4"
                   whileHover={{ scale: 1.1 }}
                 >
                   {method.icon}
@@ -446,7 +446,7 @@ const ContactPage = () => {
 
             <motion.button
               type="submit"
-              className="w-full bg-transparent text-white px-8 py-4 rounded-xl font-medium border border-white/20"
+              className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl font-medium border border-white/20"
               whileHover={{
                 scale: 1.05,
                 backgroundColor: "rgba(110, 142, 251, 0.1)",
