@@ -76,7 +76,7 @@ export default function MobileAppProjects() {
         },
         {
             id: 2,
-            icon: <img src="public/care_without_fear.png" alt="Care Without Fear" className="w-3 h-5 " />,
+            icon: <img src="public/care_without_fear.png" alt="Care Without Fear" className="w-14 h-14 " />,
             title: "Care Without Fear",
             description: "Digitalizing health and child care with enhanced security feature, auth and secure payments.",
             technologies: ["Java", "Node.js", "Firebase", "XML"],
@@ -94,7 +94,7 @@ export default function MobileAppProjects() {
         },
         {
             id: 4,
-            icon: <Smartphone className="w-12 h-12" />,
+            icon: <img src="/public/budget_buddy.png" alt="Budget Buddy" className="w-25  h-15" />,
             title: "Budget Buddy",
             description: "Personal finance tracker for smart budgeting.",
             technologies: ["Kotlin", "XML", "Firebase"],
