@@ -76,7 +76,7 @@ export default function MobileAppProjects() {
         },
         {
             id: 2,
-            icon: <img src="public/care_without_fear.png" alt="Care Without Fear" className="w-14 h-14 " />,
+            icon: <img src="/public/CWF.png" alt="Care Without Fear" className="w-18 h-18 " />,
             title: "Care Without Fear",
             description: "Digitalizing health and child care with enhanced security feature, auth and secure payments.",
             technologies: ["Java", "Node.js", "Firebase", "XML"],
