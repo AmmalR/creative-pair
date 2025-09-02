@@ -5,5 +5,5 @@ import { progress } from 'framer-motion';
 
 export default defineConfig({
   plugins: [react()],
-  base: progress.env.VITE_BASE_PATH || "/creative-pair" ,
+  base: "/creative-pair" ,
 });
